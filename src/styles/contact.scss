@@ -1,0 +1,220 @@
+@import "mixins";
+.contact {
+  margin-bottom: 120px;
+
+  &__title {
+    @include title;
+    line-height: 64px;
+    margin-bottom: 22px;
+    display: inline-block;
+    max-width: 100%;
+    transform: translate(0px, -160px);
+    opacity: 0;
+    transition: all 2s ease;
+  }
+
+  &__title._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 34% 64%;
+    gap: 30px;
+  }
+
+  &__banner {
+    background-image: url("../images/man.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 369px;
+    width: 100%;
+    transition: all 2s ease;
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  &__banner._active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    overflow-y: hidden;
+  }
+
+  &__input {
+    padding: 14px 21px;
+    background-color: var(--input-bg);
+    min-width: 100%;
+    margin-bottom: 10px;
+    position: relative;
+    max-width: 391px;
+    width: 100%;
+    display: block;
+    // transform: translate(0px, -160px);
+    // opacity: 0;
+    // transition: all 2s ease;
+    position: relative;
+  }
+
+  &__wrap-name {
+    transform: translate(0px, -160px);
+    opacity: 0;
+    transition: all 2s ease;
+  }
+  &__wrap-goods {
+    transform: translate(0px, -160px);
+    opacity: 0;
+    transition: all 2s ease;
+  }
+  &__wrap-phone {
+    position: relative;
+    display: inline;
+    transform: translate(0px, -160px);
+    opacity: 0;
+    transition: all 2s ease;
+    position: relative;
+    &__star {
+      display: block;
+      color: #c30000;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.56px;
+      position: absolute;
+      top: 13px;
+      left: 136px;
+    }
+  }
+  &__wrap-email {
+    position: relative;
+    display: inline;
+    opacity: 0;
+    transform: translate(0px, -160px);
+    transition: all 2s ease;
+    position: relative;
+    &__star {
+      display: block;
+      color: #c30000;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.56px;
+      position: absolute;
+      top: 13px;
+      left: 65px;
+    }
+  }
+
+  &__wrap-name._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  &__wrap-phone._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  &__wrap-email._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  &__wrap-goods._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+
+  &__textarea {
+    position: relative;
+    padding: 14px 21px;
+    background-color: var(--input-bg);
+    width: 100%;
+    margin-bottom: 22px;
+    resize: none;
+  }
+
+  &__wrap-textarea {
+    position: relative;
+    width: 100%;
+    transform: translate(0px, -160px);
+    opacity: 0;
+    transition: all 2s ease;
+
+    &__star {
+      display: block;
+      color: #c30000;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      letter-spacing: 0.56px;
+      position: absolute;
+      top: 13px;
+      left: 102px;
+    }
+
+    &__img {
+      position: absolute;
+      left: 0;
+      top: 40%;
+    }
+  }
+
+  &__wrap-textarea._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  &__text {
+    text-align: center;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.42px;
+    margin-bottom: 21px;
+  }
+
+  &__btn {
+    @include btn;
+    background-color: var(--text);
+  }
+
+  &__btn:hover {
+    background-color: var(--text-placeholder-form);
+  }
+
+  &__btn span {
+    @include btn-span;
+    color: #fff;
+  }
+}
+
+::-webkit-input-placeholder {
+  @include placeholder;
+}
+
+::-moz-placeholder {
+  @include placeholder;
+}
+:-ms-input-placeholder {
+  @include placeholder;
+}
+:-moz-placeholder {
+  @include placeholder;
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (max-width: 959px) {
+  .contact {
+    &__content {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,136 @@
+@import "mixins";
+
+.home {
+  display: grid;
+  grid-template-columns: auto 66%;
+  gap: 122px;
+  margin-bottom: 120px;
+
+  &__title {
+    @include title;
+    color: var(--text-title);
+    margin-top: 336px;
+    margin-bottom: 90px;
+
+    transform: translate(0px, -120%);
+    opacity: 0;
+    transition: all 2s ease;
+  }
+
+  &__title._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+
+  &__title span {
+    color: var(--text);
+    font-weight: 700;
+    line-height: 64px; /* 100% */
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 23px;
+    margin-bottom: 94px;
+  }
+
+  &__btn {
+    width: 53px;
+    height: 53px;
+    border: 1px solid var(--secondary-color);
+    background: #fff;
+    transition: all 0.8s ease-in-out;
+    opacity: 0;
+  }
+  &__btn:first-child._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  &__btn:last-child._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+
+  &__btn:first-child {
+    transform: translate(-150%, 0px);
+  }
+
+  &__btn:last-child {
+    transform: translate(150%, 0px);
+  }
+
+  &__btn:hover {
+    background-color: var(--text-title);
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    &__number {
+      color: var(--text-title);
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 24px;
+    }
+    &__number:first-child {
+      margin-right: 26px;
+    }
+    &__line {
+      margin-right: 32px;
+    }
+  }
+
+  &__img {
+    position: relative;
+    background-image: url("../images/house.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    max-width: 100%;
+    height: auto;
+    width: 100%;
+    transform: translate(120%, 0px);
+    opacity: 0;
+    transition: all 2s ease;
+
+    &__btn {
+      @include btn;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      background-color: #fff;
+    }
+    &__btn:hover {
+      background-color: var(--text-title);
+    }
+
+    &__btn span {
+      @include btn-span;
+      color: var(--text);
+    }
+  }
+
+  &__img._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .home {
+    grid-template-columns: 1fr;
+
+    &__title {
+      margin-top: 100px;
+    }
+    &__img {
+      padding-bottom: 100%;
+    }
+  }
+}

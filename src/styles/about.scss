@@ -1,0 +1,84 @@
+@import "mixins";
+
+.about {
+  display: grid;
+  grid-template-columns: 57% auto;
+  gap: 30px;
+  margin-bottom: 120px;
+  background-color: var(--primary-color);
+  padding: 30px 70px 0 100px;
+
+  &__list-img {
+    max-height: 465px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex-wrap: wrap;
+    transform: translate(-120%, 0px);
+    opacity: 0;
+    transition: all 2s ease;
+  }
+  &__list-img._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  &__img {
+    max-width: 50%;
+    overflow: hidden;
+  }
+  &__img img {
+    max-width: 100%;
+    transition: all 0.3s ease-in;
+    cursor: pointer;
+  }
+  &__img img:hover {
+    transform: scale(1.1);
+  }
+  &__img:last-child {
+    margin-top: 30px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    transform: translate(120%, 0px);
+    opacity: 0;
+    transition: all 2s ease;
+  }
+  &__info._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+  &__title {
+    @include title;
+    margin-bottom: 20px;
+    line-height: 0.7; /* 100% */
+  }
+  &__text {
+    color: #000;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 25px; /* 156.25% */
+    margin-bottom: 20px;
+  }
+  &__btn {
+    @include btn;
+  }
+
+  &__btn:hover {
+    background-color: var(--text-title);
+  }
+
+  &__btn span {
+    @include btn-span;
+    color: var(--text);
+  }
+}
+
+@media screen and (max-width: 959px) {
+  .about {
+    grid-template-columns: 1fr;
+  }
+}

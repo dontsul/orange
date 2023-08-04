@@ -1,0 +1,163 @@
+@import "mixins";
+.projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 120px;
+
+  &__title {
+    @include title;
+    color: var(--text-title);
+    line-height: 64px; /* 100% */
+    margin-bottom: 60px;
+    display: inline;
+    transform: translate(0px, -160px);
+    opacity: 0;
+    transition: all 2s ease;
+  }
+
+  &__title._active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+      "one one one one one one two two two two two two"
+      "three three three four four four four four five five five five";
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  &__one {
+    position: relative;
+    overflow: hidden;
+    background-image: url("../images/p-one.png");
+    @include project-item;
+    max-height: 255px;
+    grid-area: one;
+    display: flex;
+    padding: 48px 78px 0 79px;
+    opacity: 0;
+    transition: all 2s ease;
+    transition-delay: 400ms;
+
+    background-color: rgba(51, 51, 51, 0.8);
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      color: #fff;
+      font-size: 64px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 64px; /* 100% */
+      margin-bottom: 14px;
+      z-index: 10;
+    }
+
+    &__btn {
+      display: flex;
+      align-items: center;
+      z-index: 10;
+    }
+    &__btn span {
+      margin-right: 12px;
+      color: #fff;
+      font-family: "Gothic A1", sans-serif;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 12px; /* 100% */
+      letter-spacing: 2.4px;
+      text-transform: uppercase;
+    }
+    &__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(51, 51, 51, 0.8);
+    }
+  }
+
+  &__one._active {
+    opacity: 1;
+  }
+
+  &__two {
+    background-image: url("../images/p-two.png");
+    @include project-item;
+    grid-area: two;
+    opacity: 0;
+    transition: all 2s ease;
+    transition-delay: 800ms;
+  }
+
+  &__two._active {
+    opacity: 1;
+  }
+
+  &__three {
+    background-image: url("../images/p-three.png");
+    @include project-item;
+    grid-area: three;
+    opacity: 0;
+    transition: all 2s ease;
+    transition-delay: 1200ms;
+  }
+
+  &__three._active {
+    opacity: 1;
+  }
+
+  &__four {
+    background-image: url("../images/p-four.png");
+    @include project-item;
+    grid-area: four;
+    opacity: 0;
+    transition: all 2s ease;
+    transition-delay: 1600ms;
+  }
+
+  &__four._active {
+    opacity: 1;
+  }
+
+  &__five {
+    background-image: url("../images/p-five.png");
+    @include project-item;
+    grid-area: five;
+    opacity: 0;
+    transition: all 2s ease;
+    transition-delay: 1800ms;
+  }
+  &__five._active {
+    opacity: 1;
+  }
+
+  &__wrap-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: auto;
+  }
+
+  &__btn {
+    @include btn;
+    background-color: var(--text);
+  }
+
+  &__btn:hover {
+    background-color: var(--text-placeholder-form);
+  }
+
+  &__btn span {
+    @include btn-span;
+    color: #fff;
+  }
+}
